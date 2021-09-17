@@ -28,19 +28,18 @@ const AllAuthors = (props) => {
         <div>
             <Link to="/authors/create">Add an author:</Link>
             <p>We have quotes by:</p>
-            <table>
-                <tr>
+            <table className='authors_table'>
+                <tr className='authors_row'>
                     <th>Author</th>
                     <th>Actions Available</th>
                 </tr>
                 {
                     authors.map((item,i) =>{
-                        return <div>{
-                            <tr key={i}>
-                                <td>{item.name}</td>
-                                <td><Link to={`/authors/${item._id}`}>EDIT</Link> <button onClick={()=>onDeleteHandler(item._id)}>DELETE</button> </td>
-                            </tr>
-                        }</div>
+                        return <tr key={i} className='authors_row'>
+                                    <td>{item.name}</td>
+                                    <td><Link to={`/authors/${item._id}`}>EDIT</Link> <button onClick={()=>onDeleteHandler(item._id)}>DELETE</button> </td>
+                                </tr>
+                        
                     })
                 }
             </table>
